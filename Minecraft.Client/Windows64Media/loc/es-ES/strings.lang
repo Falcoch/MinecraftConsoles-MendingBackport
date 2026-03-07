@@ -7322,6 +7322,10 @@ Selecciona ACEPTAR para salir del juego.</value>
 		<value>Infinidad</value>
 	</data>	
 
+	<data name="IDS_ENCHANTMENT_BACKPORT_MENDING">
+		<value>Remiendo</value>
+	</data>
+
 	<data name="IDS_ENCHANTMENT_LEVEL_1">
 		<value>I</value>
 	</data>	

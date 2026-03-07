@@ -22,3 +22,6 @@
 #include "ArrowKnockbackEnchantment.h"
 
 #include "ThornsEnchantment.h"
+
+// Backport
+#include "MendingEnchantment.h"

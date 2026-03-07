@@ -52,6 +52,10 @@ public:
 	int clearInventory(int id, int data);
 	void replaceSlot(Item *item, int data);
 
+	int getEnchantedCount(int id);
+    int getEnchantedItemCount(int id);
+    int getEnchantedArmorCount(int id);
+
 private:
 	int addResource(shared_ptr<ItemInstance> itemInstance);
 

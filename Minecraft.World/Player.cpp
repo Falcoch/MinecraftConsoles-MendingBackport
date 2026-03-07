@@ -2388,6 +2388,19 @@ void Player::increaseXp(int i)
 	{
 		i = max;
 	}
+
+	///   Mending Backport
+    // Avoid dynamic_cast for each xp orb retrieved
+    if (inventory->getEnchantedCount(Enchantment::mendingBonus->id) > 0)
+    {
+        MendingEnchantment *mending = dynamic_cast<MendingEnchantment *>(Enchantment::mendingBonus);
+        if (mending->canApply(inventory))
+        {
+            i = mending->apply(i, inventory);
+        }
+    }
+    ///   Mending BackPort
+
 	experienceProgress += (float) i / getXpNeededForNextLevel();
 	totalExperience += i;
 	while (experienceProgress >= 1)

@@ -7316,6 +7316,10 @@ Voulez-vous installer le pack mash-up ou le pack de textures maintenant ?</valu
 		<value>Infinité</value>
 	</data>	
 
+	<data name="IDS_ENCHANTMENT_BACKPORT_MENDING">
+		<value>Raccommodage</value>
+	</data>
+
 	<data name="IDS_ENCHANTMENT_LEVEL_1">
 		<value>I</value>
 	</data>	

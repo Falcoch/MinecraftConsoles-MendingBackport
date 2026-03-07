@@ -2,6 +2,7 @@
 #include "com.mojang.nbt.h"
 #include "net.minecraft.world.entity.player.h"
 #include "net.minecraft.world.item.h"
+#include "net.minecraft.world.item.enchantment.h"
 #include "net.minecraft.world.level.tile.h"
 #include "net.minecraft.stats.h"
 #include "Material.h"
@@ -139,6 +140,37 @@ void Inventory::grabTexture(int id, int data, bool checkData, bool mayReplace)
 			replaceSlot(Item::items[id], data);
 		}
 	}
+}
+
+int Inventory::getEnchantedCount(int id)
+{
+    return getEnchantedItemCount(id) + getEnchantedArmorCount(id);
+}
+
+int Inventory::getEnchantedItemCount(int id)
+{
+    int count = 0;
+    for (unsigned int i = 0u; i < items.length; ++i)
+    {
+        if (EnchantmentHelper::getEnchantmentLevel(id, items[i]))
+        {
+            ++count;
+        }
+    }
+    return count;
+}
+
+int Inventory::getEnchantedArmorCount(int id)
+{
+    int count = 0;
+    for (unsigned int i = 0u; i < armor.length; ++i)
+    {
+        if (EnchantmentHelper::getEnchantmentLevel(id, armor[i]))
+        {
+            ++count;
+        }
+    }
+    return count;
 }
 
 void Inventory::swapPaint(int wheel)

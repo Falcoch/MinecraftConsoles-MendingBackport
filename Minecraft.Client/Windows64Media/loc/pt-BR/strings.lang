@@ -7304,6 +7304,10 @@ Deseja instalar o pacote de combinações ou o pacote de texturas agora?</value>
 		<value>Infinito</value>
 	</data>	
 
+	<data name="IDS_ENCHANTMENT_BACKPORT_MENDING">
+		<value>Remendo</value>
+	</data>
+
 	<data name="IDS_ENCHANTMENT_LEVEL_1">
 		<value>I</value>
 	</data>	

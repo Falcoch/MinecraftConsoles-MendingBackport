@@ -36,6 +36,9 @@ Enchantment *Enchantment::arrowKnockback = NULL;
 Enchantment *Enchantment::arrowFire = NULL;
 Enchantment *Enchantment::arrowInfinite = NULL;
 
+// All
+Enchantment *Enchantment::mendingBonus = NULL;
+
 void Enchantment::staticCtor()
 {
 	allDamageProtection = new ProtectionEnchantment(0, FREQ_COMMON, ProtectionEnchantment::ALL);
@@ -66,6 +69,9 @@ void Enchantment::staticCtor()
 	arrowKnockback = new ArrowKnockbackEnchantment(49, FREQ_RARE);
 	arrowFire = new ArrowFireEnchantment(50, FREQ_RARE);
 	arrowInfinite = new ArrowInfiniteEnchantment(51, FREQ_VERY_RARE);
+
+	// backport
+    mendingBonus = new MendingEnchantment(52, FREQ_VERY_RARE);
 
 	for(unsigned int i = 0; i < 256; ++i)
 	{

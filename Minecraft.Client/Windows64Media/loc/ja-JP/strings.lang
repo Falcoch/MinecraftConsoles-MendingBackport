@@ -7306,6 +7306,10 @@ OK を選択すると、この世界でのプレイを終了します</value>
 		<value>無限</value>
 	</data>	
 
+	<data name="IDS_ENCHANTMENT_BACKPORT_MENDING">
+		<value>修理</value>
+	</data>	
+
 	<data name="IDS_ENCHANTMENT_LEVEL_1">
 		<value>I</value>
 	</data>	

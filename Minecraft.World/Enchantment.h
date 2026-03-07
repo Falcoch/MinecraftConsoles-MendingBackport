@@ -47,6 +47,9 @@ public :
 	static Enchantment *arrowFire;
 	static Enchantment *arrowInfinite;
 
+	// backport
+    static Enchantment *mendingBonus;
+
 	const int id;
 
 	static void staticCtor();
