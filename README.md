@@ -7,8 +7,7 @@ Back portage implementation of the [mending](https://minecraft.fandom.com/wiki/M
 ## Ingame Behavior
 
 This implementation dosen't make Infinity and Mending mutually exclusive and make Mending repaire only damaged and mending enchanted items.
-Mending is currenly registered as `FREQ_VERY_RARE`, this make the mending enchantment appear in the enchanting table, this behavior is not wanted and is currently work in progress to make it appear in villager trade offer.
-Curently mending don't reduce any enchanting cost in the anvil. 
+Mending is currenly registered as `FREQ_VERY_RARE`, this make the mending enchantment appear in the enchanting table.
 
 ## Post Scriptum
 
