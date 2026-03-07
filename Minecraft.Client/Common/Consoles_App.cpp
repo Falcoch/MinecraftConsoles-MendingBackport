@@ -234,11 +234,8 @@ CMinecraftApp::CMinecraftApp()
 #endif
 }
 
-
-
 void CMinecraftApp::DebugPrintf(const char *szFormat, ...)
 {
-
 #ifndef _FINAL_BUILD
 	char    buf[1024];
 	va_list ap;
@@ -247,7 +244,21 @@ void CMinecraftApp::DebugPrintf(const char *szFormat, ...)
 	va_end(ap);
 	OutputDebugStringA(buf);
 #endif
+}
 
+void CMinecraftApp::DebugPrintf(const wchar_t *szformat, ...)
+{
+#ifndef _FINAL_BUILD
+	char buffer[1024];
+	std::wcstombs(&buffer[0], szformat, 1024);
+
+	va_list args;
+	va_start(args, buffer);
+
+	DebugPrintf(&buffer[0], args);
+
+	va_end(args);
+#endif
 }
 
 void CMinecraftApp::DebugPrintf(int user, const char *szFormat, ...)

@@ -102,6 +102,7 @@ public:
 	unsigned int uiGameDefinedDataChangedBitmask;
 
 	void			DebugPrintf(const char *szFormat, ...);
+	void            DebugPrintf(const wchar_t *szFormat, ...);
 	void			DebugPrintfVerbose(bool bVerbose, const char *szFormat, ...);	// Conditional printf
 	void			DebugPrintf(int user, const char *szFormat, ...);
 
