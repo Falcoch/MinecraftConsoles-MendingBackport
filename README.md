@@ -7,7 +7,7 @@ Back portage implementation of the [mending](https://minecraft.fandom.com/wiki/M
 ## Ingame Behavior
 
 This implementation dosen't make Infinity and Mending mutually exclusive and make Mending repaire only damaged and mending enchanted items.
-Mending is currenly registered as `FREQ_VERY_RARE`, this make the mending enchantment appear in the enchanting table.
+Mending is currenly registered as `FREQ_VERY_RARE`.
 
 ## Post Scriptum
 
