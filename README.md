@@ -1,3 +1,24 @@
+This project is a fork from [this](https://github.com/smartcmd/MinecraftConsoles) repository.
+
+# Mending Backport
+
+Back portage implementation of the [mending](https://minecraft.fandom.com/wiki/Mending) enchantment that have been add in *1.9* for *Minecraft Java Edition*.
+
+## Ingame Behavior
+
+This implementation dosen't make Infinity and Mending mutually exclusive and make Mending repaire only damaged and mending enchanted items.
+Mending is currenly registered as `FREQ_VERY_RARE`, this make the mending enchantment appear in the enchanting table, this behavior is not wanted and is currently work in progress to make it appear in villager trade offer.
+Curently mending don't reduce any enchanting cost in the anvil. 
+
+## Post Scriptum
+
+Currently the code is very messy, so after I add missing behavior, if I have time, I will probably start refactoring things, starting with the enchantment structure. The idea beyond this is to make the code more robust and make things easier to read and modify without creating a mess.
+
+![Mending Mining](.github/MendingMining.gif)
+![Mending Armor](.github/MendingArmor.gif)
+
+-----------
+
 # MinecraftConsoles
 
 [![Discord](https://img.shields.io/badge/Discord-Join%20Server-5865F2?logo=discord&logoColor=white)](https://discord.gg/jrum7HhegA)
