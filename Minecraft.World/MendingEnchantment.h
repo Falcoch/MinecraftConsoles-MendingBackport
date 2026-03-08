@@ -43,12 +43,12 @@ class MendingEnchantment : public Enchantment
          * Find items that are repairable with mending and return them.
          * @param item The tested inventory.
          * @return `std::vector<std::shared_ptr<ItemInstance>>` - An array that can contain the hand
-         *         or armor slots own an item damaged and enchanted with mending
+         *         or armor slots own an item damaged and enchanted with mending.
          */
         std::vector<std::shared_ptr<ItemInstance>> getMendableItems(std::shared_ptr<Inventory> &inventory) const noexcept;
 
         /*
-        *
+        *   
         */
         int getMinCost(int level) override;
 
@@ -61,6 +61,11 @@ class MendingEnchantment : public Enchantment
         *
         */
 	    int getMaxLevel() override;
+
+        /*
+        *   Mending is not compatible with infinity.
+        */
+        bool isCompatibleWith(Enchantment *other) const override;
 
     protected:
         static constexpr int REPAIR = 2;

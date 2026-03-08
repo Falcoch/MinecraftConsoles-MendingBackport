@@ -105,3 +105,8 @@ int MendingEnchantment::getMaxLevel()
 {
 	return 1;
 }
+
+bool MendingEnchantment::isCompatibleWith(Enchantment *other) const
+{
+	return other->id != arrowInfinite->id;
+}

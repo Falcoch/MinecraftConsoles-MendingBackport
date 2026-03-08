@@ -20,3 +20,8 @@ int ArrowInfiniteEnchantment::getMaxLevel()
 {
 	return 1;
 }
+
+bool ArrowInfiniteEnchantment::isCompatibleWith(Enchantment *other) const
+{
+	return other->id != Enchantment::mendingBonus->id;
+}

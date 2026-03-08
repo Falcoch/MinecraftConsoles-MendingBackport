@@ -4,10 +4,12 @@ This project is a fork from [this](https://github.com/smartcmd/MinecraftConsoles
 
 Back portage implementation of the [mending](https://minecraft.fandom.com/wiki/Mending) enchantment that have been add in *1.9* for *Minecraft Java Edition*.
 
+**Disclaimer:** By *back portage*, I mean implementing a mending that mimics the behavior of the Minecraft Java Edition mending.
+
 ## Ingame Behavior
 
-This implementation dosen't make Infinity and Mending mutually exclusive and make Mending repaire only damaged and mending enchanted items.
-Mending is currenly registered as `FREQ_VERY_RARE`.
+This implementation dosen't make Infinity and mending mutually exclusive and make mending repaire only damaged and mending enchanted items.
+mending is currenly registered as `FREQ_VERY_RARE`.
 
 ## Post Scriptum
 
