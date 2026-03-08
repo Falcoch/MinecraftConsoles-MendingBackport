@@ -90,3 +90,18 @@ std::vector<std::shared_ptr<ItemInstance>> MendingEnchantment::getMendableItems(
 
     return items;
 }
+
+int MendingEnchantment::getMinCost(int level)
+{
+	return 20;
+}
+
+int MendingEnchantment::getMaxCost(int level)
+{
+	return 50;
+}
+
+int MendingEnchantment::getMaxLevel()
+{
+	return 1;
+}

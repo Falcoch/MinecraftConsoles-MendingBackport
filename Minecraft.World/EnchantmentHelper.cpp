@@ -441,10 +441,18 @@ unordered_map<int, EnchantmentInstance *> *EnchantmentHelper::getAvailableEnchan
 	for(unsigned int i = 0; i < Enchantment::enchantments.length; ++i)
 	{
 		Enchantment *e = Enchantment::enchantments[i];
+		
 		if (e == NULL)
 		{
 			continue;
 		}
+
+		/// Mending Backport
+		if(e->id == IDS_ENCHANTMENT_BACKPORT_MENDING)
+		{
+			continue;
+		}
+		/// Mending Backport
 
 		// Only picks "normal" enchantments, no specialcases
 		if (!e->category->canEnchant(item) && !isBook)

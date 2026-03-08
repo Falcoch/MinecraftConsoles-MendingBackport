@@ -47,6 +47,21 @@ class MendingEnchantment : public Enchantment
          */
         std::vector<std::shared_ptr<ItemInstance>> getMendableItems(std::shared_ptr<Inventory> &inventory) const noexcept;
 
+        /*
+        *
+        */
+        int getMinCost(int level) override;
+
+        /*
+        *
+        */
+	    int getMaxCost(int level) override;
+
+        /*
+        *
+        */
+	    int getMaxLevel() override;
+
     protected:
         static constexpr int REPAIR = 2;
 };
