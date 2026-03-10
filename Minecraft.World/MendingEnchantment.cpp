@@ -7,13 +7,13 @@
 #include "Inventory.h"
 #include "net.minecraft.world.item.enchantment.h"
 
-MendingEnchantment::MendingEnchantment(int id, int frequency)
+MendingEnchantment::MendingEnchantment(int id, int frequency) noexcept
 : Enchantment(id, frequency, EnchantmentCategory::all)
 {
     setDescriptionId(IDS_ENCHANTMENT_BACKPORT_MENDING);
 }
 
-int MendingEnchantment::apply(int amount, std::shared_ptr<Inventory> &inventory) const noexcept
+int MendingEnchantment::apply(int amount, std::shared_ptr<Inventory> & inventory) const
 {
     auto items = getMendableItems(inventory);
     if (items.empty())
@@ -48,7 +48,7 @@ int MendingEnchantment::apply(int amount, std::shared_ptr<Inventory> &inventory)
     return 0;
 }
 
-bool MendingEnchantment::canApply(std::shared_ptr<ItemInstance> &item) const noexcept
+bool MendingEnchantment::canApply(std::shared_ptr<ItemInstance> &item) const
 {
     if (item == nullptr)
     {
@@ -58,7 +58,7 @@ bool MendingEnchantment::canApply(std::shared_ptr<ItemInstance> &item) const noe
     return EnchantmentHelper::getEnchantmentLevel(id, item) > 0 && item->isDamaged();
 }
 
-bool MendingEnchantment::canApply(std::shared_ptr<Inventory> &inventory) const noexcept
+bool MendingEnchantment::canApply(std::shared_ptr<Inventory> &inventory) const
 {
     auto &held = inventory->items[inventory->selected];
     if (canApply(held))
@@ -78,13 +78,13 @@ bool MendingEnchantment::canApply(std::shared_ptr<Inventory> &inventory) const n
     return false;
 }
 
-std::vector<std::shared_ptr<ItemInstance>> MendingEnchantment::getMendableItems(std::shared_ptr<Inventory> &inventory) const noexcept
+std::vector<std::shared_ptr<ItemInstance>> MendingEnchantment::getMendableItems(std::shared_ptr<Inventory> & inventory) const
 {
     std::vector<std::shared_ptr<ItemInstance>> items;
-    auto &held = inventory->items[inventory->selected];
-    if (canApply(held))
+    auto & current = inventory->items[inventory->selected];
+    if (canApply(current))
     {
-        items.push_back(held);
+        items.push_back(current);
     }
 
     for (unsigned int i = 0u; i < inventory->armor.length; ++i)
@@ -114,7 +114,7 @@ int MendingEnchantment::getMaxLevel()
 	return 1;
 }
 
-bool MendingEnchantment::isCompatibleWith(Enchantment *other) const
+bool MendingEnchantment::isCompatibleWith(Enchantment * other) const
 {
 	return other->id != arrowInfinite->id;
 }

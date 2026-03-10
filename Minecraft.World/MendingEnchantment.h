@@ -12,7 +12,7 @@ class MendingEnchantment : public Enchantment
          * @param id The enchantment id regarding other enchantments.
          * @param freq The frequency of apparition of this enchantment in the enchanting table.
          */
-        MendingEnchantment(int id, int freq);
+        MendingEnchantment(int id, int freq) noexcept;
 
         /*
          * Apply the mending enchantment on a randomly selected item from `inventory` to repair it with `xp` amount.
@@ -21,15 +21,15 @@ class MendingEnchantment : public Enchantment
          * @return `int` - The amount of experience remaining after applying the Mending enchantment.
              *          If no damaged mending items are found in `inventory`, `xp` is returned.
         */
-        int apply(int xp, std::shared_ptr<Inventory> &inventory) const noexcept;
+        int apply(int xp, std::shared_ptr<Inventory> & inventory) const;
 
         /*
          * Check if an item can be repaired by the Mending enchantment.
          * @param item The tested item.
          * @return `true` - if `item` is damaged and enchanted with mending else `false` is returned.
-             *          If the item is `nullptr`, `false` is returned.
+         *          If the item is `nullptr`, `false` is returned.
         */
-        bool canApply(std::shared_ptr<ItemInstance> &item) const noexcept;
+        bool canApply(std::shared_ptr<ItemInstance> & item) const;
 
         /*
          * Check if in `inventory` some items can be repaired.
@@ -37,7 +37,7 @@ class MendingEnchantment : public Enchantment
          * @return `true` - if the hand or one armor slot owns an item damaged and enchanted with
          *         mending, else `false` is returned.
          */
-        bool canApply(std::shared_ptr<Inventory> &inventory) const noexcept;
+        bool canApply(std::shared_ptr<Inventory> & inventory) const;
 
         /*
          * Find items that are repairable with mending and return them.
@@ -45,17 +45,17 @@ class MendingEnchantment : public Enchantment
          * @return `std::vector<std::shared_ptr<ItemInstance>>` - An array that can contain the hand
          *         or armor slots own an item damaged and enchanted with mending.
          */
-        std::vector<std::shared_ptr<ItemInstance>> getMendableItems(std::shared_ptr<Inventory> &inventory) const noexcept;
+        std::vector<std::shared_ptr<ItemInstance>> getMendableItems(std::shared_ptr<Inventory> & inventory) const;
 
         /*
         *   
         */
-        int getMinCost(int level) override;
+        int getMinCost(int) override;
 
         /*
         *
         */
-	    int getMaxCost(int level) override;
+	    int getMaxCost(int) override;
 
         /*
         *
@@ -65,7 +65,7 @@ class MendingEnchantment : public Enchantment
         /*
         *   Mending is not compatible with infinity.
         */
-        bool isCompatibleWith(Enchantment *other) const override;
+        bool isCompatibleWith(Enchantment *) const override;
 
     protected:
         static constexpr int REPAIR = 2;
