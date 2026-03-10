@@ -423,6 +423,7 @@ void Villager::addOffers(int addCount)
 			newOffers->push_back(new MerchantRecipe(std::make_shared<ItemInstance>(Tile::gravel, 10), std::make_shared<ItemInstance>(Item::emerald), std::make_shared<ItemInstance>(Item::flint_Id, 4 + random->nextInt(2), 0)));
 		}
 		break;
+		
 	case PROFESSION_BUTCHER:
 		addItemForTradeIn(newOffers, Item::coal_Id, random, getRecipeChance(.7f));
 		addItemForTradeIn(newOffers, Item::porkChop_raw_Id, random, getRecipeChance(.5f));
@@ -435,6 +436,7 @@ void Villager::addOffers(int addCount)
 		addItemForPurchase(newOffers, Item::porkChop_cooked_Id, random, getRecipeChance(.3f));
 		addItemForPurchase(newOffers, Item::beef_cooked_Id, random, getRecipeChance(.3f));
 		break;
+
 	case PROFESSION_SMITH:
 		addItemForTradeIn(newOffers, Item::coal_Id, random, getRecipeChance(.7f));
 		addItemForTradeIn(newOffers, Item::ironIngot_Id, random, getRecipeChance(.5f));
@@ -464,6 +466,7 @@ void Villager::addOffers(int addCount)
 		addItemForPurchase(newOffers, Item::chestplate_chain_Id, random, getRecipeChance(.1f));
 		addItemForPurchase(newOffers, Item::leggings_chain_Id, random, getRecipeChance(.1f));
 		break;
+
 	case PROFESSION_LIBRARIAN:
 		addItemForTradeIn(newOffers, Item::paper_Id, random, getRecipeChance(.8f));
 		addItemForTradeIn(newOffers, Item::book_Id, random, getRecipeChance(.8f));
@@ -483,6 +486,7 @@ void Villager::addOffers(int addCount)
 			newOffers->push_back(new MerchantRecipe(std::make_shared<ItemInstance>(Item::book), std::make_shared<ItemInstance>(Item::emerald, cost), book));
 		}
 		break;
+
 	case PROFESSION_PRIEST:
 		addItemForPurchase(newOffers, Item::eyeOfEnder_Id, random, getRecipeChance(.3f));
 		addItemForPurchase(newOffers, Item::expBottle_Id, random, getRecipeChance(.2f));
