@@ -14,10 +14,6 @@ Like in Java Edition, you cannot enchant a bow with infinity and mending. You ca
 
 In the code, mending is currently registered as `FREQ_VERY_RARE`. 
 
-## Post Scriptum
-
-Currently the code is very messy, so after I add missing behavior, if I have time, I will probably start refactoring things, starting with the enchantment structure. The idea beyond this is to make the code more robust and make things easier to read and modify without creating a mess.
-
 ![Mending Mining](.github/MendingMining.gif)
 ![Mending Armor](.github/MendingArmor.gif)
 
