@@ -5,8 +5,24 @@
 
 #pragma once
 
-//#include <xtl.h>
-//#include <xboxmath.h>
+// Standard Library Includes
+#ifdef _WINDOWS64
+	#define _HAS_STD_BYTE 0 
+#endif
+
+#include <memory>
+#include <list>
+#include <map>
+#include <set>
+#include <deque>
+#include <algorithm>
+#include <string>
+#include <sstream>
+#include <iostream>
+#include <exception>
+
+
+// String Concatenation Macros
 
 #define __STR2__(x) #x
 #define __STR1__(x) __STR2__(x)
@@ -14,100 +30,106 @@
 
 // use  - #pragma message(__LOC__"Need to do something here")
 
+// Platform Includes
+
+//#include <xtl.h>
+//#include <xboxmath.h>
+
 // #ifndef _XBOX
-// #ifdef _CONTENT_PACKAGE
-// #define TO_BE_IMPLEMENTED
-// #endif
+// #	ifdef _CONTENT_PACKAGE
+// #		define TO_BE_IMPLEMENTED
+// #	endif
 // #endif
 
 #ifdef _WINDOWS64
-#define _HAS_STD_BYTE 0     // solve (std::)'byte' ambiguity with windows headers
-#define WIN32_LEAN_AND_MEAN // Exclude rarely-used stuff from Windows headers
-// Windows Header Files:
-#include <malloc.h>
-#include <tchar.h>
-#include <windows.h>
-#include <windowsx.h>
-// TODO: reference additional headers your program requires here
-#include <DirectXMath.h>
-#include <d3d11.h>
-using namespace DirectX;
+#	define WIN32_LEAN_AND_MEAN // Exclude rarely-used stuff from Windows headers
+#	include <malloc.h>
+#	include <tchar.h>
+#	include <windows.h>
+#	include <windowsx.h>
+#	include <DirectXMath.h>
+#	include <d3d11.h>
+	using namespace DirectX;
 
-#define HRESULT_SUCCEEDED(hr) (((HRESULT)(hr)) >= 0)
-
+#	define HRESULT_SUCCEEDED(hr) (((HRESULT)(hr)) >= 0)
 #endif
 
 #ifdef __PS3__
-
-#include "Ps3Types.h"
-#include "Ps3Stubs.h"
-#include "PS3Maths.h"
+#	include "Ps3Types.h"
+#	include "Ps3Stubs.h"
+#	include "PS3Maths.h"
 
 #elif defined __ORBIS__
-#include <stdio.h>
-#include <stdlib.h>
-#include <scebase.h>
-#include <kernel.h>
-#include <unordered_map>
-#include <unordered_set>
-#include <vector>
-#include <fios2.h>
-#include <message_dialog.h>
-#include <game_live_streaming.h>
-#include "OrbisTypes.h"
-#include "OrbisStubs.h"
-#include "OrbisMaths.h"
-#define HRESULT_SUCCEEDED(hr) (((HRESULT)(hr)) >= 0)
-#elif defined __PSVITA__
-#include <stdio.h>
-#include <stdlib.h>
-#include <scebase.h>
-#include <kernel.h>
-#include <unordered_map>
-#include <unordered_set>
-#include <vector>
-#include <touch.h>
-#include "PSVitaTypes.h"
-#include "PSVitaStubs.h"
-#include "PSVitaMaths.h"
-#else
-#include <unordered_map>
-#include <unordered_set>
-#include <vector>
-#endif
+#	include <stdio.h>
+#	include <stdlib.h>
+#	include <scebase.h>
+#	include <kernel.h>
+#	include <unordered_map>
+#	include <unordered_set>
+#	include <vector>
+#	include <fios2.h>
+#	include <message_dialog.h>
+#	include <game_live_streaming.h>
+#	include "OrbisTypes.h"
+#	include "OrbisStubs.h"
+#	include "OrbisMaths.h"
+#	define HRESULT_SUCCEEDED(hr) (((HRESULT)(hr)) >= 0)
 
+#elif defined __PSVITA__
+#	include <stdio.h>
+#	include <stdlib.h>
+#	include <scebase.h>
+#	include <kernel.h>
+#	include <unordered_map>
+#	include <unordered_set>
+#	include <vector>
+#	include <touch.h>
+#	include "PSVitaTypes.h"
+#	include "PSVitaStubs.h"
+#	include "PSVitaMaths.h"
+
+#else
+#	include <unordered_map>
+#	include <unordered_set>
+#	include <vector>
+
+#endif
 
 #ifdef _DURANGO
-#include <xdk.h>
-#include <wrl.h>
-#include <d3d11_x.h>
-#include <DirectXMath.h>
-#include <ppltasks.h>
-#include <collection.h>
-using namespace DirectX;
-#include <pix.h>
-#include "DurangoStubs.h"
-#define HRESULT_SUCCEEDED(hr) (((HRESULT)(hr)) >= 0)
+#	include <xdk.h>
+#	include <wrl.h>
+#	include <d3d11_x.h>
+#	include <DirectXMath.h>
+#	include <ppltasks.h>
+#	include <collection.h>
+	using namespace DirectX;
+#	include <pix.h>
+#	include "DurangoStubs.h"
+
+#	define HRESULT_SUCCEEDED(hr) (((HRESULT)(hr)) >= 0)
 #endif
 
+#ifdef _XBOX
+#	include <xtl.h>
+#	include <xboxmath.h>
+#	include <xonline.h>
+#	include <xuiapp.h>
+#	include <xact3.h>
+#	include <xact3d3.h>
+#	define HRESULT_SUCCEEDED(hr) (((HRESULT)(hr)) >= 0)
 
+#	include "..\Minecraft.Client\xbox\network\extra.h"
+#else
+#	include "extraX64.h"
+#endif
+
+//
 
 #ifdef _XBOX
-#include <xtl.h>
-#include <xboxmath.h>
-#include <xonline.h>
-#include <xuiapp.h>
-#include <xact3.h>
-#include <xact3d3.h>
-typedef XINVITE_INFO INVITE_INFO;
-typedef XUID PlayerUID;
-typedef XNKID SessionID;
-typedef XUID GameSessionUID;
-#define HRESULT_SUCCEEDED(hr) (((HRESULT)(hr)) >= 0)
-
-#include "..\Minecraft.Client\xbox\network\extra.h"
-#else
-#include "extraX64.h"
+	typedef XINVITE_INFO INVITE_INFO;
+	typedef XUID PlayerUID;
+	typedef XNKID SessionID;
+	typedef XUID GameSessionUID;
 #endif
 
 #ifdef __PS3__
@@ -127,17 +149,7 @@ typedef XUID GameSessionUID;
 // C RunTime Header Files
 #include <stdlib.h>
 
-#include <memory>
 
-#include <list>
-#include <map>
-#include <set>
-#include <deque>
-#include <algorithm>
-#include <string>
-#include <sstream>
-#include <iostream>
-#include <exception>
 
 #include <assert.h>
 
