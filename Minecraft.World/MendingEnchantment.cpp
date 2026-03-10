@@ -27,11 +27,19 @@ int MendingEnchantment::apply(int amount, std::shared_ptr<Inventory> &inventory)
 
     for (int i = 0; i < amount; ++i)
     {
-        auto &value = items[distr(gen)];
-        value->setAuxValue(value->getAuxValue() - MendingEnchantment::REPAIR);
+        auto & item = items[distr(gen)];
 
-        // Item if fully repaired
-        if (!value->isDamaged())
+        // Item is at 1 damage
+        if(item->getAuxValue() <= 1)
+        {
+            item->setAuxValue(0);
+            return amount;
+        }
+
+        item->setAuxValue(item->getAuxValue() - MendingEnchantment::REPAIR);
+
+        // Item is fully repaired
+        if (!item->isDamaged())
         {
             return amount - i;
         }

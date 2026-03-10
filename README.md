@@ -4,12 +4,15 @@ This project is a fork from [this](https://github.com/smartcmd/MinecraftConsoles
 
 Back portage implementation of the [mending](https://minecraft.fandom.com/wiki/Mending) enchantment that have been add in *1.9* for *Minecraft Java Edition*.
 
-**Disclaimer:** By *back portage*, I mean implementing a mending that mimics the behavior of the Minecraft Java Edition mending.
+**Disclaimer:** By *back portage*, I mean implementing a mending that mimics the behavior of the Minecraft Java Edition mending. At no moment I claim that this implementation is the exact implementation of Mending.
 
 ## Ingame Behavior
 
-This implementation dosen't make Infinity and mending mutually exclusive and make mending repaire only damaged and mending enchanted items.
-mending is currenly registered as `FREQ_VERY_RARE`.
+Mending enchantment can affect tools, weapons, armor, and bows. It will make damaged items restore durability when collecting experience orbs. To use mending, **you need to hold a mending enchanted item in your hand**. If it's armor, you just need to equip it in an armor slot.
+
+Like in Java Edition, you cannot enchant a bow with infinity and mending. You can only get mendings by trading with villagers or looting it from chests in structures. You can't get it through an enchanting table!
+
+In the code, mending is currently registered as `FREQ_VERY_RARE`. 
 
 ## Post Scriptum
 
